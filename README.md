@@ -1,2 +1,2 @@
-# linux-configs
-my custom configs file such as vimrc, zshrc on linux
+# configs
+config files about vim,arch,i3,etc.
