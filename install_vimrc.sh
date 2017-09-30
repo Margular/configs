@@ -5,7 +5,6 @@ cd `dirname $0`
 cp .vimrc ~
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 2> /dev/null
 vim -c ':BundleUpdate' -c ':q' -c ':q'
-sudo cp ~/.vim/bundle/molokai/colors/molokai.vim /usr/share/vim/vim80/colors/
 
 pushd `pwd`
 cd ~/.vim/bundle/YouCompleteMe
