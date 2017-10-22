@@ -1,16 +1,34 @@
 #!/bin/bash
 
-cd `dirname $0`
-cp .vimrc ~
-git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-vim -c ':BundleUpdate' -c ':qa'
+# .vimrc
+cp -fv .vimrc $HOME/.vimrc
 
-echo 'move your molokai theme to /usr/share/vim manually.'
+# Vundle
+VUNDLE=$HOME/.vim/bundle/Vundle.vim
+if [ ! -d $VUNDLE ]; then
+    git clone https://github.com/VundleVim/Vundle.vim $VUNDLE
+    vim -c ':BundleUpdate' -c ':qa'
+fi
 
-echo 'you need to install exuberant-ctags for plugin tagbar.'
+# colorscheme
+VIMRUNTIME=$(vim --cmd 'echo $VIMRUNTIME|q' 2>&1 | sed -n 2p | grep -o '[[:print:]]*' | head -n 1)
+cp -v $HOME/.vim/bundle/molokai/colors/molokai.vim $VIMRUNTIME/colors/
 
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer --js-completer
-echo 'you can invoke :YcmGenerateConfig to generate a .ycm_extra_conf.py for a build system like make.'
-echo 'copy .ycm_extra_conf.py.c[pp] to your home directory and rename it to .ycm_extra_conf.py.'
-echo 'you can use gcc -xc[++] -E -v - to see default include directory of c or c++ and replace it in .ycm_extra_conf.py.'
+# ycm
+echo -n 'do you want to build ycm now? (Y/N) '
+read choice
+if [ "$choice" = "Y" ] || [ "$choice" = "y" ]; then
+    cd $HOME/.vim/bundle/YouCompleteMe
+    ./install.py --clang-completer --js-completer
+fi
+
+# .ycm_extra_conf.py
+echo -n 'now generate .ycm_extra_conf.py, choose c or c++? (C/C++) '
+read ctype
+if [ "$ctype" = "C" ] || [ "$ctype" = "c" ]; then
+    INCLUDES=$(echo | gcc -Wp,-v -x c - -fsyntax-only 2>&1 | grep '^ ')
+elif [ "$ctype" = "C++" ] || [ "$ctype" = "c++" ]; then
+    INCLUDES=$(echo | gcc -Wp,-v -x c++ - -fsyntax-only 2>&1 | grep '^ ')
+else
+    echo 'do nothing with wrong input'
+fi
