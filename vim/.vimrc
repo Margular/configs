@@ -54,6 +54,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'LargeFile'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
 Plugin 'iamcco/markdown-preview.vim'
 
 "你的所有插件需要在下面这行之前
