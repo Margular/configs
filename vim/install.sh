@@ -23,7 +23,7 @@ if [ "$choice" = "Y" ] || [ "$choice" = "y" ]; then
 fi
 
 # .ycm_extra_conf.py
-echo -n 'now generate .ycm_extra_conf.py, choose c or c++? (C/C++) '
+echo -n 'now generate isystem in .ycm_extra_conf.py, choose c or c++? (C/C++) '
 read ctype
 if [ "$ctype" = "C" ] || [ "$ctype" = "c" ]; then
     INCLUDES=$(echo | gcc -Wp,-v -x c - -fsyntax-only 2>&1 | grep '^ ')
@@ -32,3 +32,4 @@ elif [ "$ctype" = "C++" ] || [ "$ctype" = "c++" ]; then
 else
     echo 'do nothing with wrong input'
 fi
+printf "%s\n" $INCLUDES
