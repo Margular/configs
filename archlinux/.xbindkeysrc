@@ -59,6 +59,10 @@ XF86AudioMute
     m:0x50 + c:60
     Mod2+Mod4 + period
 
+"deepin-screenshot"
+    m:0x10 + c:107
+    Mod2 + Print
+
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
 #
