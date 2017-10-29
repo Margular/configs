@@ -39,13 +39,6 @@
 
 # Examples of commands:
 
-"xbindkeys_show" 
-  control+shift + q
-
-# specify a mouse button
-"xterm"
-  control + b:2
-
 "amixer sset Master 618-"
 XF86AudioLowerVolume
 
