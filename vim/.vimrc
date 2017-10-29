@@ -56,6 +56,10 @@ Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'iamcco/markdown-preview.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Shougo/denite.nvim'
 
 "你的所有插件需要在下面这行之前
 call vundle#end()   "必须
@@ -73,7 +77,7 @@ nmap <F8> :TagbarToggle<CR>
 imap <F8> <ESC>:TagbarToggle<CR>
 
 "Valloric/YouCompleteMe 代码补全
-autocmd InsertLeave,CursorMovedI * if pumvisible() == 0|pclose|endif                            "自动关闭弹出窗口
+autocmd InsertLeave,CursorMovedI * if pumvisible() == 0|pclose|endif    "自动关闭弹出窗口
 nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
@@ -105,3 +109,10 @@ let g:ycm_semantic_triggers =  {
 
 "iamcco/markdown-preview.vim
 let g:mkdp_path_to_chrome = "firefox"
+
+"vim-airline/vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+"ctrlpvim/ctrlp.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim
