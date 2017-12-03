@@ -12,3 +12,5 @@ pulseaudio &
 xbindkeys &
 fcitx-autostart &
 numlockx &
+feh --bg-fill ~/pictures/xia.jpg &
+compton &
