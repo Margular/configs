@@ -51,7 +51,7 @@ ZSH_THEME="bullet-train"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(adb archlinux branch colored-man-pages colorize command-not-found common-aliases git git-extras gitfast github git-remote-branch gnu-utils history history-substring-search man nmap pip python sudo themes urltools vi-mode web-search z)
+plugins=(adb branch colored-man-pages colorize command-not-found common-aliases git-extras gitfast github git-remote-branch gnu-utils history history-substring-search nmap pip python sudo themes web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,7 +60,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -77,7 +77,9 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 export VISUAL="vim"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+export NO_AUTH_BOTO_CONFIG=~/.boto
 export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+export PATH="${PATH}:/opt/depot_tools"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
