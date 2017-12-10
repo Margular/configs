@@ -12,7 +12,7 @@ pulseaudio &
 xbindkeys &
 fcitx-autostart &
 numlockx &
-xwinwrap -b -fs -sp -nf -ov -- mplayer -loop 0 -wid WID -nolirc -ao null ~/videos/sleep.mp4 &
+xwinwrap -b -fs -sp -nf -ov -- mplayer -shuffle -loop 0 -wid WID -nolirc -nosound -really-quiet `find ~/wallpapers -type f` &
 compton &
 nm-applet &
 pasystray &
