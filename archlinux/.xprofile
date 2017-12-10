@@ -12,5 +12,6 @@ pulseaudio &
 xbindkeys &
 fcitx-autostart &
 numlockx &
-feh --bg-fill ~/pictures/xia.jpg &
+xwinwrap -b -fs -sp -nf -ov -- mplayer -loop 0 -wid WID -nolirc ~/videos/sleep.mp4 &
 compton &
+nm-applet &
