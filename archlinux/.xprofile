@@ -12,7 +12,7 @@ pulseaudio &
 xbindkeys &
 fcitx-autostart &
 numlockx &
-xwinwrap -b -fs -sp -nf -ov -- mplayer -shuffle -loop 0 -wid WID -nolirc -nosound -really-quiet `find ~/wallpapers -type f` &
 compton &
 nm-applet &
 pasystray &
+mkfifo /tmp/wallpaper; xwinwrap -b -fs -sp -nf -ov -- mplayer -shuffle -slave -input file=/tmp/wallpaper -loop 0 -wid WID -nolirc `find ~/wallpapers -type f` &
