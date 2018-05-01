@@ -1,18 +1,14 @@
-export GTK_IM_MODULE="fcitx"
-export QT_IM_MODULE="fcitx"
-export XMODIFIERS="@im=fcitx"
-
 #making terminology works with fcitx
 export XIM_PROGRAM="fcitx"
 export XIM="fcitx"
 export XIM_ARGS="-d"
 export ECORE_IMF_MODULE="xim"
 
-pulseaudio &
-xbindkeys &
-fcitx-autostart &
-numlockx &
+#wallpaper engine for linux
+mkfifo /tmp/wallpaper; xwinwrap -b -fs -sp -nf -ov -- mplayer -shuffle -slave -input file=/tmp/wallpaper -loop 0 -wid WID -nolirc `find ~/wallpapers -type f` &
 compton &
+
+fcitx &
+xbindkeys &
 nm-applet &
 pasystray &
-mkfifo /tmp/wallpaper; xwinwrap -b -fs -sp -nf -ov -- mplayer -shuffle -slave -input file=/tmp/wallpaper -loop 0 -wid WID -nolirc `find ~/wallpapers -type f` &

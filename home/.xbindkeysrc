@@ -39,13 +39,13 @@
 
 # Examples of commands:
 
-"amixer sset Master 618-"
+"pulseaudio-ctl down 1"
 XF86AudioLowerVolume
 
-"amixer sset Master 618+"
+"pulseaudio-ctl up 1"
 XF86AudioRaiseVolume
 
-"amixer sset Master toggle"
+"pulseaudio-ctl mute"
 XF86AudioMute
 
 "~/github/i3lockpp/i3lock++ spread"

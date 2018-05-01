@@ -80,6 +80,7 @@ export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export NO_AUTH_BOTO_CONFIG=~/.boto
 export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 export PATH="${PATH}:/opt/depot_tools"
+export EDITOR="vim"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

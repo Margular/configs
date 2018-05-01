@@ -12,7 +12,7 @@ fi
 
 # colorscheme
 VIMRUNTIME=$(vim --cmd 'echo $VIMRUNTIME|q' 2>&1 | sed -n 2p | grep -o '[[:print:]]*' | head -n 1)
-cp -v $HOME/.vim/bundle/molokai/colors/molokai.vim $VIMRUNTIME/colors/
+sudo cp -v $HOME/.vim/bundle/molokai/colors/molokai.vim $VIMRUNTIME/colors/
 
 # ycm
 echo -n 'do you want to build ycm now? (Y/N) '
