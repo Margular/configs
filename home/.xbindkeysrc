@@ -49,20 +49,20 @@ XF86AudioRaiseVolume
 XF86AudioMute
 
 "~/github/i3lockpp/i3lock++ spread"
-    m:0x50 + c:60
-    Mod2+Mod4 + period
+m:0x50 + c:60
+Mod2+Mod4 + period
 
 "deepin-screenshot"
-    m:0x10 + c:107
-    Mod2 + Print
+m:0x10 + c:107
+Mod2 + Print
 
 "echo pause >> /tmp/wallpaper"
-    m:0x10 + c:172
-    Mod2 + XF86AudioPlay
+m:0x10 + c:172
+Mod2 + XF86AudioPlay
 
 "echo pt_step 1 >> /tmp/wallpaper"
-    m:0x10 + c:171
-    Mod2 + XF86AudioNext
+m:0x10 + c:171
+Mod2 + XF86AudioNext
 
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
