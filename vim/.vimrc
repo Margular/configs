@@ -32,7 +32,7 @@ language messages zh_CN.utf-8                                                   
 
 "运行配置
 autocmd FileType sh nnoremap <buffer> <F5> :w<CR>:!/bin/bash %<CR>
-autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!/usr/bin/python %<CR>
+autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!./%<CR>
 autocmd FileType php nnoremap <buffer> <F5> :w<CR>:!/usr/bin/php %<CR>
 autocmd FileType c nnoremap <buffer> <F5> :w<CR>:!/usr/bin/gcc % -o %:r.out && ./%:r.out<CR>
 autocmd FileType cpp nnoremap <buffer> <F5> :w<CR>:!/usr/bin/g++ % -o %:r.out && ./%:r.out<CR>
@@ -56,10 +56,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'iamcco/markdown-preview.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Shougo/denite.nvim'
 
 "你的所有插件需要在下面这行之前
 call vundle#end()   "必须
@@ -108,11 +107,22 @@ let g:ycm_semantic_triggers =  {
 \   }
 
 "iamcco/markdown-preview.vim
-let g:mkdp_path_to_chrome = "firefox"
-
-"vim-airline/vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:mkdp_path_to_chrome = "google-chrome-stable"
 
 "ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"vim-airline/vim-airline
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" powerline symbols
+" need to install: https://github.com/ryanoasis/nerd-fonts
+set guifont=DroidSansMono\ Nerd\ Font\ 12
+let g:airline_left_sep = "\uE0C0"
+let g:airline_right_sep = "\uE0C2"
+let g:airline_theme = 'dark'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
