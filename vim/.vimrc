@@ -24,20 +24,22 @@ set cursorline                                                                  
 set helplang=cn                                                                 "使用中文帮助文档
 set t_Co=256                                                                    "开启256色
 
+scriptencoding utf-8
 colorscheme molokai
-
 syntax on                                                                       "颜色区分关键字
-
 language messages zh_CN.utf-8                                                   "设置消息所用的语言
 
 "运行配置
-autocmd FileType sh nnoremap <buffer> <F5> :w<CR>:!/bin/bash %<CR>
-autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!./%<CR>
-autocmd FileType php nnoremap <buffer> <F5> :w<CR>:!/usr/bin/php %<CR>
-autocmd FileType c nnoremap <buffer> <F5> :w<CR>:!/usr/bin/gcc % -o %:r.out && ./%:r.out<CR>
-autocmd FileType cpp nnoremap <buffer> <F5> :w<CR>:!/usr/bin/g++ % -o %:r.out && ./%:r.out<CR>
-autocmd FileType html nnoremap <buffer> <F5> :w<CR>:!firefox %<CR>
-autocmd FileType markdown nnoremap <buffer> <F5> :w<CR>:!hexo clean && hexo generate && firefox http://localhost:4000 && hexo server<CR>
+augroup run_file
+    au!
+    au FileType sh nnoremap <buffer> <F5> :w<CR>:!/bin/bash %<CR>
+    au FileType python nnoremap <buffer> <F5> :w<CR>:!./%<CR>
+    au FileType php nnoremap <buffer> <F5> :w<CR>:!/usr/bin/php %<CR>
+    au FileType c nnoremap <buffer> <F5> :w<CR>:!/usr/bin/gcc % -o %:r.out && ./%:r.out<CR>
+    au FileType cpp nnoremap <buffer> <F5> :w<CR>:!/usr/bin/g++ % -o %:r.out && ./%:r.out<CR>
+    au FileType html nnoremap <buffer> <F5> :w<CR>:!firefox %<CR>
+    au FileType markdown nnoremap <buffer> <F5> :w<CR>:!hexo clean && hexo generate && firefox http://localhost:4000 && hexo server<CR>
+augroup END
 
 "-------------------------------------------------------------------vundle配置开始
 filetype off "必须
@@ -82,7 +84,10 @@ nmap <F8> :TagbarToggle<CR>
 imap <F8> <ESC>:TagbarToggle<CR>
 
 "Valloric/YouCompleteMe 代码补全
-autocmd InsertLeave,CursorMovedI * if pumvisible() == 0|pclose|endif    "自动关闭弹出窗口
+augroup ycm
+    au!
+    au InsertLeave,CursorMovedI * if pumvisible() == 0|pclose|endif    "自动关闭弹出窗口
+augroup END
 nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
@@ -96,7 +101,7 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_tags_files = 1 
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_semantic_triggers =  {
 \       'c' : ['->', '.'],
@@ -113,7 +118,7 @@ let g:ycm_semantic_triggers =  {
 \   }
 
 "iamcco/markdown-preview.vim
-let g:mkdp_path_to_chrome = "google-chrome-stable"
+let g:mkdp_path_to_chrome = 'google-chrome-stable'
 
 "ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -158,8 +163,10 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 " w0rp/ale
-" Fix files with prettier, and then ESLint.
-let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_fixers = {
+\   'javascript': ['eslint','prettier'],
+\   'python': ['autopep8','black','isort','yapf'],
+\}
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 " Enable completion where available.
@@ -167,6 +174,6 @@ let g:ale_completion_enabled = 1
 
 " sirver/ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger=";"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'

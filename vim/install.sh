@@ -11,15 +11,18 @@ if [ ! -d $VUNDLE ]; then
 fi
 
 # colorscheme
-VIMRUNTIME=$(vim --cmd 'echo $VIMRUNTIME|q' 2>&1 | sed -n 2p | grep -o '[[:print:]]*' | head -n 1)
-sudo cp -v $HOME/.vim/bundle/molokai/colors/molokai.vim $VIMRUNTIME/colors/
+COLOR=$HOME/.vim/colors
+if [ ! -d $COLOR ]; then
+    mkdir $COLOR
+fi
+cp -v $HOME/.vim/bundle/molokai/colors/molokai.vim $COLOR
 
 # ycm
 echo -n 'do you want to build ycm now? (Y/N) '
 read choice
 if [ "$choice" = "Y" ] || [ "$choice" = "y" ]; then
     cd $HOME/.vim/bundle/YouCompleteMe
-    ./install.py --clang-completer --js-completer
+    ./install.py --clang-completer
 fi
 
 # .ycm_extra_conf.py
