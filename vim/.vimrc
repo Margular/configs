@@ -67,6 +67,10 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'w0rp/ale'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'raimondi/delimitmate'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'mhinz/vim-startify'
+Plugin 'python-mode/python-mode'
 
 "你的所有插件需要在下面这行之前
 call vundle#end()   "必须
@@ -177,3 +181,6 @@ let g:ale_completion_enabled = 1
 let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+
+" python-mode/python-mode
+let g:pymode_python = 'python3'
