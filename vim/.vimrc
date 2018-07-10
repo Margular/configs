@@ -168,6 +168,9 @@ let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 " w0rp/ale
 let g:ale_fixers = {
+\   'sh': ['shfmt'],
+\   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
 \   'javascript': ['eslint','prettier'],
 \   'python': ['autopep8','black','isort','yapf'],
 \}
