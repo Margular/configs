@@ -92,7 +92,7 @@ augroup ycm
     au!
     au InsertLeave,CursorMovedI * if pumvisible() == 0|pclose|endif    "自动关闭弹出窗口
 augroup END
-nnoremap <leader>gd :YcmCompleter GetDoc<CR><C-W>k<C-W><S-T>
+nnoremap <leader>gd :let cur_filetype=&filetype<CR>:YcmCompleter GetDoc<CR><C-W>k<C-W><S-T>:execute "set filetype=".cur_filetype<CR>
 nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
