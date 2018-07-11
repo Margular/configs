@@ -92,6 +92,7 @@ augroup ycm
     au!
     au InsertLeave,CursorMovedI * if pumvisible() == 0|pclose|endif    "自动关闭弹出窗口
 augroup END
+nnoremap <leader>gd :YcmCompleter GetDoc<CR><C-W>k<C-W><S-T>
 nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
