@@ -167,5 +167,5 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     font pango:Inconsolata 10
-    status_command bumblebee-status -m currency nic traffic battery date time -p currency.source=USD currency.destination=CNY date.format="%Y年%m月%d日 周%w" time.format="%H:%M:%S" publicip.service="http://checkip.amazonaws.com/" -t solarized-powerline
+    status_command bumblebee-status -m currency nic traffic battery date time -p currency.source=USD currency.destination=CNY date.format="%Y年%m月%d日 周%w" time.format="%H:%M:%S" -t solarized-powerline
 }
