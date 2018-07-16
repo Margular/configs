@@ -19,11 +19,18 @@ antigen bundle last-working-dir
 antigen bundle nmap
 antigen bundle pip
 antigen bundle pyenv
+antigen bundle sudo
 antigen bundle tmux
 antigen bundle urltools
-antigen bundle vi-mode
 
+antigen bundle chrissicool/zsh-256color
+antigen bundle djui/alias-tips
 antigen bundle guiferpa/aterminal
+antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
+source =virtualenvwrapper.sh
+antigen bundle popstas/zsh-command-time
+antigen bundle Tarrasch/zsh-bd
+antigen bundle Vifon/deer
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
@@ -33,6 +40,11 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
 antigen apply
+
+# Vifon/deer
+autoload -U deer
+zle -N deer
+bindkey '\ek' deer
 
 # fzf
 source /usr/share/fzf/key-bindings.zsh
