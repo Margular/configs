@@ -56,15 +56,9 @@ Mod2+Mod4 + period
 m:0x10 + c:107
 Mod2 + Print
 
-# awesome screencaster
-"kazam"
+"deepin-screen-recorder"
 m:0x40 + c:107
 Mod4 + Print
-
-# gif maker
-"deepin-screen-recorder"
-m:0x41 + c:107
-Shift+Mod4 + Print
 
 "echo pause >> /tmp/wallpaper"
 m:0x10 + c:172
