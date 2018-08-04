@@ -8,6 +8,7 @@ export ECORE_IMF_MODULE="xim"
 mkfifo /tmp/wallpaper; xwinwrap -b -fs -sp -nf -ov -- mplayer -shuffle -slave -input file=/tmp/wallpaper -loop 0 -wid WID -nolirc `find ~/wallpapers -type f` &
 compton &
 
+numlockx &
 fcitx-autostart &
 xbindkeys &
 nm-applet &
