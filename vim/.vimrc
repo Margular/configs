@@ -146,10 +146,6 @@ let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
 
 " easymotion/vim-easymotion
 nmap s <Plug>(easymotion-s2)
@@ -173,11 +169,14 @@ let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \   'javascript': ['eslint','prettier'],
 \   'python': ['autopep8','black','isort','yapf'],
+\   'php': ['php_cs_fixer','phpcbf'],
 \}
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 " Enable completion where available.
 let g:ale_completion_enabled = 1
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
 
 " sirver/ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
