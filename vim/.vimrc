@@ -70,6 +70,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'raimondi/delimitmate'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mhinz/vim-startify'
+Plugin 'Shougo/vinarise.vim'
 
 "你的所有插件需要在下面这行之前
 call vundle#end()   "必须
@@ -183,3 +184,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+
+" Shougo/vinarise.vim
+let g:vinarise_enable_auto_detect=1
+map <Leader>V :Vinarise<CR>
