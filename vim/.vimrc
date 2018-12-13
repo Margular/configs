@@ -71,6 +71,7 @@ Plugin 'raimondi/delimitmate'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mhinz/vim-startify'
 Plugin 'Shougo/vinarise.vim'
+Plugin 'junegunn/vim-easy-align'
 
 "你的所有插件需要在下面这行之前
 call vundle#end()   "必须
@@ -188,3 +189,9 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " Shougo/vinarise.vim
 let g:vinarise_enable_auto_detect=1
 map <Leader>V :Vinarise<CR>
+
+" junegunn/vim-easy-align:w
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
