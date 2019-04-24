@@ -1,22 +1,88 @@
-source /usr/share/zsh/share/antigen.zsh
+source /usr/share/zsh-antigen/antigen.zsh
 
+# Load the oh-my-zsh's library
 antigen use oh-my-zsh
 
+# catimg some_picture.jpg
 antigen bundle catimg
+
+# colorize you man pages
 antigen bundle colored-man-pages
+
+# ccat <file> [files]: colorize the contents of the file (or files, if more than one are provided). If no arguments are passed it will colorize the standard input or stdin.
+# cless <file> [files]: colorize the contents of the file (or files, if more than one are provided) and open less. If no arguments are passed it will colorize the standard input or stdin.
 antigen bundle colorize
+
+# example as below:
+# $ mutt
+# The program 'mutt' can be found in the following packages:
+#  * mutt
+#  * mutt-kz
+#  * mutt-patched
+# Try: sudo apt install <selected package>
 antigen bundle command-not-found
+
+# example as below:
+# ~$ cd Projects
+# ~/Projects$ cd Hacktoberfest
+# ~/Projects/Hacktoberfest$ cd oh-my-zsh
+# ~/Projects/Hacktoberfest/oh-my-zsh$ dirs -v
+# 0       ~/Projects/Hacktoberfest/oh-my-zsh
+# 1       ~/Projects/Hacktoberfest
+# 2       ~/Projects
+# 3       ~
 antigen bundle dircycle
+
+# cd -<TAB>
 antigen bundle dirpersist
-antigen bundle encode64
+
+# The git plugin provides many aliases and a few useful functions
+# See also: https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git
 antigen bundle git
+
+# This plugin adds completion for Git
+# and git repo marked as clean or dirty using "✔" and "✗"
 antigen bundle gitfast
+
+# This plugin provides completion definitions for some of the commands defined by git-extras
 antigen bundle git-extras
+
+# Provides a couple of convenient aliases for using the history command to examine your command line history
+# Usage
+# If h is called, your command history is listed. Equivalent to using history
+# If hsi is called with an argument, a case insensitive grep search is performed on your command history, looking for commands that match the argument provided
+# If hsi is called without an argument you will help on grep arguments
 antigen bundle history
+
+# you can type in any part of any previously entered command and press the UP and DOWN arrow keys to cycle through the matching commands
 antigen bundle history-substring-search
+
+# pp_json - pretty prints json
+# is_json - returns true if valid json; false otherwise
+# urlencode_json - returns a url encoded string for the given json
+# urldecode_json - returns decoded json for the given url encoded string
 antigen bundle jsontools
+
+# Keeps track of the last used working directory and automatically jumps into it for new shells
 antigen bundle last-working-dir
+
+# nmap_open_ports - Scan for open ports on target
+# nmap_list_interfaces - List all network interfaces on host where the command runs
+# nmap_slow - Slow scan that avoids to spam the targets logs
+# nmap_fin - Scan to see if hosts are up with TCP FIN scan
+# nmap_full - Aggressive full scan that scans all ports, tries to determine OS and service versions
+# nmap_check_for_firewall - TCP ACK scan to check for firewall existence
+# nmap_ping_through_firewall - Host discovery with SYN and ACK probes instead of just pings to avoid firewall restrictions
+# nmap_fast - Fast scan of the top 300 popular ports
+# nmap_detect_versions - Detects versions of services and OS, runs on all ports
+# nmap_check_for_vulns - Uses vulscan script to check target services for vulnerabilities
+# nmap_full_udp - Same as full but via UDP
+# nmap_traceroute - Try to traceroute using the most common ports
+# nmap_full_with_scripts - Same as nmap_full but also runs all the scripts
+# nmap_web_safe_osscan - Little "safer" scan for OS version as connecting to only HTTP and HTTPS ports doesn't look so attacking.
 antigen bundle nmap
+
+
 antigen bundle pip
 antigen bundle pyenv
 antigen bundle sudo
@@ -27,7 +93,7 @@ antigen bundle chrissicool/zsh-256color
 antigen bundle djui/alias-tips
 antigen bundle guiferpa/aterminal
 antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
-source =virtualenvwrapper.sh
+#source =virtualenvwrapper.sh
 antigen bundle popstas/zsh-command-time
 antigen bundle Tarrasch/zsh-bd
 antigen bundle Vifon/deer
@@ -46,28 +112,8 @@ autoload -U deer
 zle -N deer
 bindkey '\ek' deer
 
-# fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
-# ssh
-export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
-
 # vim
 export VISUAL="vim"
 export EDITOR="vim"
 
-# java
-export JAVA_HOME=/usr/lib/jvm/default
-export PATH=$JAVA_HOME/bin:$PATH
-
-# android
-export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
-
-# v8
-export NO_AUTH_BOTO_CONFIG=~/.boto
-export PATH=$PATH:/opt/depot_tools
-
-# rvm
-export PATH=$PATH:$HOME/.rvm/bin
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
