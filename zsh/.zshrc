@@ -1,4 +1,4 @@
-source /usr/share/zsh-antigen/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library
 antigen use oh-my-zsh
@@ -82,38 +82,70 @@ antigen bundle last-working-dir
 # nmap_web_safe_osscan - Little "safer" scan for OS version as connecting to only HTTP and HTTPS ports doesn't look so attacking.
 antigen bundle nmap
 
-
+# pip zsh completion
 antigen bundle pip
+
+# This plugin loads pyenv into the current shell and provides prompt info via
+# the 'pyenv_prompt_info' function. Also loads pyenv-virtualenv if available
 antigen bundle pyenv
+
+# Easily prefix your current or previous commands with sudo by pressing <esc> twice
 antigen bundle sudo
+
+# Alias	Command	Description
+# ta	tmux attach -t	Attach new tmux session to already running named session
+# tad	tmux attach -d -t	Detach named tmux session
+# ts	tmux new-session -s	Create a new named tmux session
+# tl	tmux list-sessions	Displays a list of running tmux sessions
+# tksv	tmux kill-server	Terminate all running tmux sessions
+# tkss	tmux kill-session -t	Terminate named running tmux session
+# tmux	_zsh_tmux_plugin_run	Start a new tmux session
 antigen bundle tmux
+
+# Command	Description
+# urlencode	URL-encodes the given string
+# urldecode	URL-decodes the given string
 antigen bundle urltools
 
+# This ZSH plugin enhances the terminal environment with 256 colors
 antigen bundle chrissicool/zsh-256color
+
+# An oh-my-zsh plugin to help remembering those aliases you defined once
 antigen bundle djui/alias-tips
+
+# This plugin show platforms version
+# Support: Nodejs, NPM, Docker, Go, Python, Elixir and Ruby
 antigen bundle guiferpa/aterminal
+
+# ZSH plugin to automatically switch python virtualenvs as you move between directories
 antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
-#source =virtualenvwrapper.sh
+
+# Show execution time for long commands in zsh
 antigen bundle popstas/zsh-command-time
+
+# Jump back to a specific directory, without doing `cd ../../..`
+# usage: bd <TAB>
 antigen bundle Tarrasch/zsh-bd
-antigen bundle Vifon/deer
+
+# It suggests commands as you type, based on command history
 antigen bundle zsh-users/zsh-autosuggestions
+
+# Additional completion definitions for Zsh
+# Using packages: Debian/Ubuntu and other several distributions
 antigen bundle zsh-users/zsh-completions
 
+# Fish shell like syntax highlighting for Zsh
 # this should be the last bundle
 antigen bundle zsh-users/zsh-syntax-highlighting
-
 antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-
 antigen apply
 
-# Vifon/deer
-autoload -U deer
-zle -N deer
-bindkey '\ek' deer
-
-# vim
+# set vim as default editor
 export VISUAL="vim"
 export EDITOR="vim"
 
+# fzf: A command-line fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# add your zsh code in this file
+source .zshrc.local
