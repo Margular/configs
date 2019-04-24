@@ -127,6 +127,9 @@ antigen bundle popstas/zsh-command-time
 # usage: bd <TAB>
 antigen bundle Tarrasch/zsh-bd
 
+# Type `git open` to open the GitHub page or website for a repository in your browser
+antigen bundle paulirish/git-open
+
 # It suggests commands as you type, based on command history
 antigen bundle zsh-users/zsh-autosuggestions
 
@@ -146,6 +149,23 @@ export EDITOR="vim"
 
 # fzf: A command-line fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Uncomment the following line if you want to change the command execution
+# timestamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="yyyy-mm-dd hh:MM:SS "
+# with this setting you need this alias (by default history is aliased
+# to 'fc -l 1').
+# alias history="fc -il 1"
+
+# However, if you also want seconds, the solution above doesn't work as
+# you would expect.
+HIST_FORMAT="'%Y-%m-%d %T:'$(echo -e '\t')"
+alias history="fc -t "$HIST_FORMAT" -il 1"
+
+# In contrast to fs.unlink, del, and rimraf which permanently delete files, this only moves them to the trash, which is much safer and reversible
+# install using: npm install --global trash-cli
+alias rm="trash"
 
 # add your zsh code in this file
 source .zshrc.local
