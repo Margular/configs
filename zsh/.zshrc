@@ -125,6 +125,9 @@ antigen bundle autojump
 #   password
 antigen bundle cloudapp
 
+# Auto complete arguments and options for all docker commands
+antigen bundle docker
+
 # It suggests commands as you type, based on command history
 antigen bundle zsh-users/zsh-autosuggestions
 
