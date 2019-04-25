@@ -113,6 +113,11 @@ antigen bundle popstas/zsh-command-time
 # Type `git open` to open the GitHub page or website for a repository in your browser
 antigen bundle paulirish/git-open
 
+# you need to install autojump package by manually
+# j foo: Jump To A Directory That Contains foo
+# jo bar: Open File Manager To Directories (instead of jumping)
+antigen bundle autojump
+
 # It suggests commands as you type, based on command history
 antigen bundle zsh-users/zsh-autosuggestions
 
