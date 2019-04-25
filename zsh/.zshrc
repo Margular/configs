@@ -1,9 +1,10 @@
+# change the path to your antigen.zsh location
 source /usr/local/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library
 antigen use oh-my-zsh
 
-# catimg some_picture.jpg
+# usage: catimg some_picture.jpg
 antigen bundle catimg
 
 # colorize you man pages
@@ -20,18 +21,8 @@ antigen bundle colorize
 #  * mutt-kz
 #  * mutt-patched
 # Try: sudo apt install <selected package>
+# you need to install external packages by manually, see also: https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/command-not-found
 antigen bundle command-not-found
-
-# example as below:
-# ~$ cd Projects
-# ~/Projects$ cd Hacktoberfest
-# ~/Projects/Hacktoberfest$ cd oh-my-zsh
-# ~/Projects/Hacktoberfest/oh-my-zsh$ dirs -v
-# 0       ~/Projects/Hacktoberfest/oh-my-zsh
-# 1       ~/Projects/Hacktoberfest
-# 2       ~/Projects
-# 3       ~
-antigen bundle dircycle
 
 # cd -<TAB>
 antigen bundle dirpersist
@@ -123,10 +114,6 @@ antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
 # Show execution time for long commands in zsh
 antigen bundle popstas/zsh-command-time
 
-# Jump back to a specific directory, without doing `cd ../../..`
-# usage: bd <TAB>
-antigen bundle Tarrasch/zsh-bd
-
 # Type `git open` to open the GitHub page or website for a repository in your browser
 antigen bundle paulirish/git-open
 
@@ -147,7 +134,9 @@ antigen apply
 export VISUAL="vim"
 export EDITOR="vim"
 
-# fzf: A command-line fuzzy finder
+# fzf: A command-line fuzzy finder. You need to install fzf by manually
+# CTRL-T: Paste the selected files and directories onto the command-line
+# CTRL-R: Paste the selected command from history onto the command-line
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Uncomment the following line if you want to change the command execution
