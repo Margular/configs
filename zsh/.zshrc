@@ -168,4 +168,4 @@ alias history="fc -t "$HIST_FORMAT" -il 1"
 alias rm="trash"
 
 # add your zsh code in this file
-source .zshrc.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
