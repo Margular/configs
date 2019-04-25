@@ -128,6 +128,15 @@ antigen bundle cloudapp
 # Auto complete arguments and options for all docker commands
 antigen bundle docker
 
+# Extract any archive file
+antigen bundle extract
+
+# completion plugin for the gem command
+antigen bundle gem
+
+# starts gpg-agent (with ssh support) if not running and includes its environment variables
+antigen bundle gpg-agent
+
 # It suggests commands as you type, based on command history
 antigen bundle zsh-users/zsh-autosuggestions
 
