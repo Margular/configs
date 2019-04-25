@@ -118,6 +118,13 @@ antigen bundle paulirish/git-open
 # jo bar: Open File Manager To Directories (instead of jumping)
 antigen bundle autojump
 
+# Uploads a file from the command line to CloudApp, drops it into your clipboard (on a Mac, at least)
+# This requires Aaron Russell's cloudapp_api gem: gem install cloudapp_api
+# Requires you set your CloudApp credentials in ~/.cloudapp as a simple file of:
+#   email
+#   password
+antigen bundle cloudapp
+
 # It suggests commands as you type, based on command history
 antigen bundle zsh-users/zsh-autosuggestions
 
