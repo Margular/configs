@@ -104,10 +104,6 @@ antigen bundle chrissicool/zsh-256color
 # An oh-my-zsh plugin to help remembering those aliases you defined once
 antigen bundle djui/alias-tips
 
-# This plugin show platforms version
-# Support: Nodejs, NPM, Docker, Go, Python, Elixir and Ruby
-antigen bundle guiferpa/aterminal
-
 # ZSH plugin to automatically switch python virtualenvs as you move between directories
 antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
 
