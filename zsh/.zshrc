@@ -147,7 +147,7 @@ antigen bundle zsh-users/zsh-completions
 # Fish shell like syntax highlighting for Zsh
 # this should be the last bundle
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+antigen theme romkatv/powerlevel10k
 antigen apply
 
 # set vim as default editor
@@ -176,5 +176,7 @@ alias history="fc -t "$HIST_FORMAT" -il 1"
 # install using: npm install --global trash-cli
 alias rm="trash"
 
+bindkey '^[^[[C' forward-word
+bindkey '^[^[[D' backward-word
 # add your zsh code in this file
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
