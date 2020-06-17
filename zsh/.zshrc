@@ -231,13 +231,12 @@ function compile() {
         export LDFLAGS=""
     fi
 
+    export CPPFLAGS=""
     for lib in "${@:2}";
     do
         CPPFLAGS+=" -I$PREFIX/$lib/include"
         LDFLAGS+=" -L$PREFIX/$lib/lib"
     done
-
-    export CPPFLAGS
 }
 
 # add your zsh code in this file
