@@ -178,5 +178,63 @@ alias rm="trash"
 
 bindkey '^[^[[C' forward-word
 bindkey '^[^[[D' backward-word
+
+# cross compile
+function compile() {
+	export ARCH=`echo $1 | cut -d '-' -f 1`
+	case "$ARCH" in
+		x86_64)
+			export CROSS_COMPILE="x86_64-linux-musl-"
+			export CC="x86_64-linux-musl-gcc"
+			export CXX="x86_64-linux-musl-g++"
+			export LD="x86_64-linux-musl-ld"
+			export AR="x86_64-linux-musl-ar"
+			export STRIP="x86_64-linux-musl-strip"
+			export RANLIB="x86_64-linux-musl-ranlib"
+			;;
+		armebhf)
+			export CROSS_COMPILE="arm-linux-musleabihf-"
+			export CC="arm-linux-musleabihf-gcc"
+			export CXX="arm-linux-musleabihf-g++"
+			export LD="arm-linux-musleabihf-ld"
+			export AR="arm-linux-musleabihf-ar"
+			export STRIP="arm-linux-musleabihf-strip"
+			export RANLIB="arm-linux-musleabihf-ranlib"
+			;;
+		aarch64)
+			export CROSS_COMPILE="aarch64-linux-musl-"
+			export CC="aarch64-linux-musl-gcc"
+			export CXX="aarch64-linux-musl-g++"
+			export LD="aarch64-linux-musl-ld"
+			export AR="aarch64-linux-musl-ar"
+			export STRIP="aarch64-linux-musl-strip"
+			export RANLIB="aarch64-linux-musl-ranlib"
+			;;
+		*)
+			echo "Usage: compile {x86_64|armebhf|aarch64}[-static] [lib [lib2 [lib3...]]]"
+			echo "Example: compile x86_64-static openssl-1.1.1 libz"
+			return
+	esac
+
+	export PREFIX=~/resources/static-binaries/$ARCH
+	STATIC=`echo $1 | cut -d '-' -f 2`
+	if [[ "$STATIC" == "static" ]]; then
+		export CFLAGS="-static"
+		export CXXFLAGS="-static"
+		export LDFLAGS="-static"
+	else
+		export CFLAGS=""
+		export CXXFLAGS=""
+		export LDFLAGS=""
+	fi
+
+	for lib in "${@:2}";
+	do
+		CFLAGS+=" -I$PREFIX/$lib/include"
+		CXXFLAGS+=" -I$PREFIX/$lib/include"
+		LDFLAGS+=" -L$PREFIX/$lib/lib"
+	done
+}
+
 # add your zsh code in this file
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
