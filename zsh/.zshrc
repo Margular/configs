@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # change the path to your antigen.zsh location
 source /usr/local/share/antigen/antigen.zsh
 
@@ -176,8 +183,16 @@ alias history="fc -t "$HIST_FORMAT" -il 1"
 # install using: npm install --global trash-cli
 alias rm="trash"
 
+alias kubectl-pods-image="kubectl get pods -A -o jsonpath=\"{..image}\" | tr -s '[[:space:]]' '\n' | sort | uniq -c"
+alias kubectl-nodes-image="kubectl get nodes -A -o jsonpath=\"{range ..images}{..names[*]}{end}\" | tr -s ' ' '\n' | sort | uniq -c"
+
 bindkey '^[^[[C' forward-word
 bindkey '^[^[[D' backward-word
+
+# add your zsh code in this file
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+export PATH=$PATH:~/cross/x86_64/bin
 
 # cross compile
 function compile() {
@@ -241,3 +256,7 @@ function compile() {
 
 # add your zsh code in this file
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
