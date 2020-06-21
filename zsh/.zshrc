@@ -254,6 +254,11 @@ function compile() {
     done
 }
 
+function masnewport() {
+    [[ $# -lt 2 ]] && echo 'need two more files' && return
+    comm <(grep -h '^open' ${@:1:-1} | awk '{print $4,$3}' | sort -u) <(grep -h '^open' ${@[-1]} | awk '{print $4,$3}' | sort -u)
+}
+
 # add your zsh code in this file
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
